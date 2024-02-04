@@ -9,6 +9,7 @@
     tools:context=".MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,18 +49,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/nav_menu" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/fab"
-        android:layout_width="wrap_content"
+        android:layout_width="70dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center|bottom"
         android:layout_marginBottom="60dp"
-        android:backgroundTint="@color/blue"
         android:contentDescription="@string/app_name"
-        android:src="@drawable/ic_add"
+        android:background="@drawable/adjust_buttonlist"
         app:layout_constraintBottom_toBottomOf="@+id/buttom_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/frame_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttom_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
