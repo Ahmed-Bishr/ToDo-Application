@@ -51,7 +51,7 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/fab"
-        android:layout_width="70dp"
+        android:layout_width="65dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center|bottom"
         android:layout_marginBottom="60dp"
