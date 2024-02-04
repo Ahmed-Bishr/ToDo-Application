@@ -70,6 +70,6 @@
 
     </style>
 
-
+    <style name="Them_to_do" parent="Base.Theme.ToDo"/>
 
 </resources>
