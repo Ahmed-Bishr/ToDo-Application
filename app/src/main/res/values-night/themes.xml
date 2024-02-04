@@ -29,4 +29,12 @@
         <item name="shapeAppearanceOverlay">@style/fab_rounded</item>
     </style>
 
+    <style name="MyBottomNavigationView">
+
+        <item name="itemActiveIndicatorStyle">@null</item>
+        <item name="android:itemBackground">@null</item>
+        <item name="itemBackground">@null</item>
+
+    </style>
+
 </resources>

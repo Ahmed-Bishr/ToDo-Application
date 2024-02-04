@@ -62,4 +62,14 @@
         <!-- Add other style attributes as needed -->
     </style>
 
+    <style name="MyBottomNavigationView">
+
+        <item name="itemActiveIndicatorStyle">@null</item>
+        <item name="android:itemBackground">@null</item>
+        <item name="itemBackground">@null</item>
+
+    </style>
+
+
+
 </resources>
