@@ -13,6 +13,9 @@
 
     </style>
 
+    <color name="timeText">@color/black</color>
+
+
     <item name="bar_color" type="color">#ffffff</item>
 
     <!-- Splash Activity theme. -->

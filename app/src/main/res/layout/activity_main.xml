@@ -32,17 +32,17 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/buttom_layout"
         style="@style/MyBottomNavigationView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_height="100dp"
         android:background="@drawable/adjust_bar"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
-        app:itemIconSize="25dp"
         app:itemActiveIndicatorStyle="@android:color/transparent"
+        app:itemIconSize="25dp"
         app:itemIconTint="@color/selector_btm_nav_icon"
         app:labelVisibilityMode="unlabeled"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -50,13 +50,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/nav_menu" />
 
-
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button"
         android:layout_width="58dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center|bottom"
-        android:layout_marginBottom="55dp"
+        android:layout_marginBottom="60dp"
         android:background="@drawable/adjust_buttonlist"
         android:contentDescription="@string/app_name"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -67,7 +66,7 @@
         android:id="@+id/frame_layout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/buttom_layout"
+        app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />

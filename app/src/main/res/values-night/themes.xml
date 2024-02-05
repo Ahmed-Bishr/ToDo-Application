@@ -9,6 +9,8 @@
         <item name="android:windowLightStatusBar">true</item>
     </style>
 
+    <color name="timeText">@color/white</color>
+
     <item name="bar_color" type="color">#141922</item>
 
     <!-- Splash Activity theme. -->
