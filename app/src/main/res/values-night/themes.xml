@@ -12,6 +12,10 @@
     <color name="timeText">@color/white</color>
 
     <item name="bar_color" type="color">#141922</item>
+    <item name="add_task_color" type="color">#141922</item>
+    <item name="time_icon" type="color">#ffffff</item>
+
+
 
     <!-- Splash Activity theme. -->
     <style name="Base.Theme.ToDo.splash" parent="Theme.Material3.DayNight.NoActionBar">

@@ -17,6 +17,8 @@
 
 
     <item name="bar_color" type="color">#ffffff</item>
+    <item name="add_task_color" type="color">#FFFFFF</item>
+    <item name="time_icon" type="color">#141922</item>
 
     <!-- Splash Activity theme. -->
     <style name="Base.Theme.ToDo.splash" parent="Theme.Material3.DayNight.NoActionBar">
