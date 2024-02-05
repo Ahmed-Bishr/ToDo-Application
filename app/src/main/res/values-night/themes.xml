@@ -14,6 +14,8 @@
     <item name="bar_color" type="color">#141922</item>
     <item name="add_task_color" type="color">#141922</item>
     <item name="time_icon" type="color">#ffffff</item>
+    <item name="settings_choic" type="color">#141922</item>
+
 
 
 

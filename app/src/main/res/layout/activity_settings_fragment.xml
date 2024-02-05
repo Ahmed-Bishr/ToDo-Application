@@ -5,6 +5,112 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/activity_bg_color"
     tools:context=".settingsFragment">
+
+    <ImageView
+        android:id="@+id/top_view"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:src="@color/blue"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/language_lable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="40dp"
+        android:text="@string/language"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top_view" />
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/language_input"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        app:boxBackgroundColor="@color/settings_choic"
+        app:layout_constraintEnd_toEndOf="@+id/language_lable"
+        app:layout_constraintStart_toStartOf="@+id/language_lable"
+        app:layout_constraintTop_toBottomOf="@+id/language_lable"
+        app:startIconDrawable="@drawable/ic_languages">
+
+        <AutoCompleteTextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="start|center"
+            android:inputType="none"
+            android:paddingStart="50dp"
+            android:paddingEnd="50dp"
+            android:text="@string/english"
+            android:textColor="@color/blue"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/arrow_language"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/adjust_arrow"
+        android:layout_margin="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/language_input"
+        app:layout_constraintEnd_toEndOf="@+id/language_input"
+        app:layout_constraintTop_toTopOf="@+id/language_input" />
+
+    <TextView
+        android:id="@+id/mode_lable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="40dp"
+        android:text="@string/mode"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/language_input" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/mode_input"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        app:boxBackgroundColor="@color/settings_choic"
+        app:layout_constraintEnd_toEndOf="@+id/mode_lable"
+        app:layout_constraintStart_toStartOf="@+id/mode_lable"
+        app:layout_constraintTop_toBottomOf="@+id/mode_lable"
+        app:startIconDrawable="@drawable/ic_light_mode">
+
+        <AutoCompleteTextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="start|center"
+            android:inputType="none"
+            android:paddingStart="50dp"
+            android:paddingEnd="50dp"
+            android:text="@string/light"
+            android:textColor="@color/blue"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/arrow_mode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/adjust_arrow"
+        android:layout_margin="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/mode_input"
+        app:layout_constraintEnd_toEndOf="@+id/mode_input"
+        app:layout_constraintTop_toTopOf="@+id/mode_input" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
