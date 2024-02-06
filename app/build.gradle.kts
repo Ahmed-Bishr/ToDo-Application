@@ -7,6 +7,10 @@ android {
     namespace = "com.example.todoapplication"
     compileSdk = 34
 
+    buildFeatures{
+        viewBinding = true
+    }
+
     defaultConfig {
         applicationId = "com.example.todoapplication"
         minSdk = 24

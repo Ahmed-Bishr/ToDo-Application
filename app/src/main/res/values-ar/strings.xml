@@ -18,8 +18,8 @@
     <string name="save">حفظ</string>
     <string name="language">اللغة</string>
     <string name="mode">وضع الشاشة</string>
-    <string name="light">Light</string>
-    <string name="dark">Dark</string>
+    <string name="light">مضئ</string>
+    <string name="dark">داكن</string>
     <string name="english">English</string>
 
 </resources>

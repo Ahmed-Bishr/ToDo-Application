@@ -15,6 +15,7 @@
     <item name="add_task_color" type="color">#141922</item>
     <item name="time_icon" type="color">#ffffff</item>
     <item name="settings_choic" type="color">#141922</item>
+    <item name="word_change" type="string" >@string/light</item>
 
 
 
@@ -25,7 +26,9 @@
         <item name="android:windowLightStatusBar">true</item>
     </style>
 
-
+    <style name="icon_change">
+        <item name="android:src">@drawable/ic_light_mode</item>
+    </style>
 
     <style name="fab_rounded" parent="ShapeAppearance.MaterialComponents.SmallComponent">
         <item name="cornerFamily">rounded</item>
