@@ -43,7 +43,7 @@
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
         app:itemActiveIndicatorStyle="@android:color/transparent"
-        app:itemIconSize="25dp"
+        app:itemIconSize="28dp"
         app:itemIconTint="@color/selector_btm_nav_icon"
         app:labelVisibilityMode="unlabeled"
         app:layout_constraintBottom_toBottomOf="parent"

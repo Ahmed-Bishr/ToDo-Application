@@ -8,12 +8,7 @@
     android:background="@color/activity_bg_color"
     tools:context=".settingsFragment">
 
-    <ImageView
-        android:id="@+id/top_view"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:src="@color/blue"
-        app:layout_constraintTop_toTopOf="parent" />
+
 
     <TextView
         android:id="@+id/language_lable"
@@ -25,7 +20,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/top_view" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/language_input"
@@ -33,7 +28,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
-        android:background="@drawable/spinner_borders"
         app:layout_constraintEnd_toEndOf="@+id/language_lable"
         app:layout_constraintStart_toStartOf="@+id/language_lable"
         app:layout_constraintTop_toBottomOf="@id/language_lable">
@@ -41,8 +35,8 @@
         <AutoCompleteTextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/inside_borders"
             android:drawableStart="@drawable/ic_languages"
+            android:background="@drawable/spinner_borders"
             android:drawablePadding="10dp"
             android:inputType="none"
             android:text="@string/english"
@@ -70,7 +64,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
-        android:background="@drawable/spinner_borders"
         app:layout_constraintEnd_toEndOf="@+id/mode_lable"
         app:layout_constraintStart_toStartOf="@+id/mode_lable"
         app:layout_constraintTop_toBottomOf="@id/mode_lable">
@@ -78,10 +71,10 @@
         <AutoCompleteTextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/inside_borders"
             android:drawableStart="@drawable/ic_light_mode"
             android:drawablePadding="10dp"
             android:inputType="none"
+            android:background="@drawable/spinner_borders"
             android:text="@string/light"
             android:textColor="@color/blue"
             android:textStyle="bold" />
