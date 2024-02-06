@@ -14,7 +14,7 @@
     <string name="add_task_date">"please select a date "</string>
     <string name="add_task_time">"please select a time "</string>
     <string name="edit_task">Edit Task</string>
-    <string name="save">Save</string>
+    <string name="save">Save Changes</string>
     <string name="language">Language</string>
     <string name="mode">Mode</string>
     <string name="light">Light</string>

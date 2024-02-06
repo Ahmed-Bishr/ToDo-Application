@@ -20,21 +20,36 @@ class MainActivity : AppCompatActivity() {
             when (it.itemId) {
                 R.id.navigation_tasks -> {
                     pushFragment(listFragment())
+                    changeTitletodo()
                 }
 
                 R.id.navigation_settings -> {
                     pushFragment(settingsFragment())
+                    changeTitlesettings()
                 }
             }
 
             return@setOnItemSelectedListener true
         }
         binding.navigationButton.selectedItemId = R.id.navigation_tasks // initialize fragment
+
+
     }
 
     private fun pushFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction().replace(binding.frameLayout.id, fragment).commit()
+        supportFragmentManager.beginTransaction().replace(binding.frameLayout.id, fragment).commitNow( )
     }
+
+    private fun changeTitlesettings() {
+        val textTitle = getString(R.string.settings)
+        binding.title.text = textTitle
+    }
+
+    private fun changeTitletodo() {
+        val textTitle = getString(R.string.to_do_list)
+        binding.title.text = textTitle
+    }
+
 
 }
 

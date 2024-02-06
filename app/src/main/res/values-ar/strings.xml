@@ -15,7 +15,7 @@
     <string name="add_task_date">رجاء قم باختيار تاريخ المهمة</string>
     <string name="add_task_time">رجاء قم باختيار وقت المهمة</string>
     <string name="edit_task">تعديل المهمة</string>
-    <string name="save">حفظ</string>
+    <string name="save">حفظ التغيرات</string>
     <string name="language">اللغة</string>
     <string name="mode">وضع الشاشة</string>
     <string name="light">مضئ</string>
