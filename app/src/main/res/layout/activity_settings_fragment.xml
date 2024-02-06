@@ -27,34 +27,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/top_view" />
 
-
-    <!-- Spinner for language selection -->
-    <Spinner
-        android:id="@+id/language_spinner"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/language_input"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:layout_margin="30dp"
         android:background="@drawable/spinner_borders"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp"
-        android:textSize="18sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/language_lable"
         app:layout_constraintStart_toStartOf="@+id/language_lable"
-        app:layout_constraintTop_toBottomOf="@+id/language_lable"
-        tools:listitem="@layout/activity_settings_list_items" />
+        app:layout_constraintTop_toBottomOf="@id/language_lable">
 
-    <ImageView
-        android:id="@+id/arrow_language"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:src="@drawable/adjust_arrow"
-        app:layout_constraintBottom_toBottomOf="@+id/language_spinner"
-        app:layout_constraintEnd_toEndOf="@+id/language_spinner"
-        app:layout_constraintTop_toTopOf="@+id/language_spinner" />
+        <AutoCompleteTextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/inside_borders"
+            android:drawableStart="@drawable/ic_languages"
+            android:drawablePadding="10dp"
+            android:inputType="none"
+            android:text="@string/english"
+            android:textColor="@color/blue"
+            android:textStyle="bold" />
 
-    <!-- TextView for mode label -->
+    </com.google.android.material.textfield.TextInputLayout>
+
+
     <TextView
         android:id="@+id/mode_lable"
         android:layout_width="match_parent"
@@ -65,33 +62,31 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/language_spinner" />
+        app:layout_constraintTop_toBottomOf="@id/language_input" />
 
-    <!-- Spinner for mode selection -->
-    <Spinner
-        android:id="@+id/mode_spinner"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/mode_input"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:layout_margin="30dp"
         android:background="@drawable/spinner_borders"
-        android:gravity="start"
-        tools:listitem="@layout/activity_settings_list_lightdark"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp"
-        android:textSize="18sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/mode_lable"
         app:layout_constraintStart_toStartOf="@+id/mode_lable"
-        app:layout_constraintTop_toBottomOf="@+id/mode_lable" />
+        app:layout_constraintTop_toBottomOf="@id/mode_lable">
 
-    <ImageView
-        android:id="@+id/arrow_mode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:src="@drawable/adjust_arrow"
-        app:layout_constraintBottom_toBottomOf="@+id/mode_spinner"
-        app:layout_constraintEnd_toEndOf="@+id/mode_spinner"
-        app:layout_constraintTop_toTopOf="@+id/mode_spinner" />
+        <AutoCompleteTextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/inside_borders"
+            android:drawableStart="@drawable/ic_light_mode"
+            android:drawablePadding="10dp"
+            android:inputType="none"
+            android:text="@string/light"
+            android:textColor="@color/blue"
+            android:textStyle="bold" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
