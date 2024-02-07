@@ -1,13 +1,13 @@
 plugins {
-    alias(libs.plugins.androidApplication)
-    alias(libs.plugins.jetbrainsKotlinAndroid)
+    id("com.android.application")
+    id("kotlin-android")
 }
 
 android {
     namespace = "com.example.todoapplication"
     compileSdk = 34
 
-    buildFeatures{
+    buildFeatures {
         viewBinding = true
     }
 
@@ -41,6 +41,8 @@ android {
 
 dependencies {
 
+
+    implementation(libs.androidx.core)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -49,4 +51,23 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+
+    // The view calendar library
+    implementation("com.kizitonwose.calendar:view:2.4.1")
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
