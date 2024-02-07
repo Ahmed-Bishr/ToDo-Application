@@ -26,9 +26,7 @@
         <item name="android:windowLightStatusBar">true</item>
     </style>
 
-    <style name="icon_change">
-        <item name="android:src">@drawable/ic_light_mode</item>
-    </style>
+
 
     <style name="fab_rounded" parent="ShapeAppearance.MaterialComponents.SmallComponent">
         <item name="cornerFamily">rounded</item>

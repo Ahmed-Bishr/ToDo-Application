@@ -32,9 +32,7 @@
         <item name="clockHandColor">@color/blue</item>
     </style>
 
-    <style name="icon_change">
-        <item name="android:src">@drawable/ic_dark</item>
-    </style>
+
 
 
     <style name="toolbar_title_style">

@@ -71,7 +71,7 @@
         <AutoCompleteTextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:drawableStart="@drawable/ic_light_mode"
+            android:drawableStart="@drawable/light_dark"
             android:drawablePadding="10dp"
             android:inputType="none"
             android:background="@drawable/spinner_borders"
