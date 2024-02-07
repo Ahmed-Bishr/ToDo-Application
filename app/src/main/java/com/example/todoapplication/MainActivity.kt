@@ -1,9 +1,7 @@
 package com.example.todoapplication
 
-import android.content.Context
-import android.content.res.Resources
+
 import android.os.Bundle
-import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.todoapplication.databinding.ActivityMainBinding
@@ -32,8 +30,6 @@ class MainActivity : AppCompatActivity() {
             return@setOnItemSelectedListener true
         }
         binding.navigationButton.selectedItemId = R.id.navigation_tasks // initialize fragment
-
-
     }
 
     private fun pushFragment(fragment: Fragment) {
