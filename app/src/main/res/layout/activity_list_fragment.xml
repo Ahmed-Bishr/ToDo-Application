@@ -12,22 +12,42 @@
         android:id="@+id/top_view"
         android:layout_width="match_parent"
         android:layout_height="80dp"
+        android:visibility="visible"
         android:src="@color/blue"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.cardview.widget.CardView
+        android:id="@+id/constraintLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/activity_bg_color"
         android:padding="10dp"
+        android:backgroundTint="@color/activity_bg_color"
+        android:background="@drawable/inside_borders"
         app:layout_constraintBottom_toBottomOf="@+id/top_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="220dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
+            <CalendarView
+                android:id="@+id/calendarView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:backgroundTint="@color/add_task_color"
+                android:verticalScrollbarPosition="left"
+                android:visibility="visible"
+                android:focusable="true" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </FrameLayout>
+    </androidx.cardview.widget.CardView>
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -36,7 +56,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/top_view"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
         tools:listitem="@layout/task_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

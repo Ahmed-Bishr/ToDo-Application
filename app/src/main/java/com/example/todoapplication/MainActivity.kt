@@ -4,6 +4,7 @@ package com.example.todoapplication
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.example.todoapplication.databinding.ActivityAddTaskBinding
 import com.example.todoapplication.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -30,7 +31,13 @@ class MainActivity : AppCompatActivity() {
             return@setOnItemSelectedListener true
         }
         binding.navigationButton.selectedItemId = R.id.navigation_tasks // initialize fragment
+
+        binding.button.setOnClickListener {
+            val buttonSheetDialogFragment = addTask()
+            buttonSheetDialogFragment.show(supportFragmentManager,null)
+        }
     }
+
 
     private fun pushFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().replace(binding.frameLayout.id, fragment).commitNow( )

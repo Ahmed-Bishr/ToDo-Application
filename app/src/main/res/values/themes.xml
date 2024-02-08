@@ -2,6 +2,7 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.ToDo" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/blue</item>
+        <item name="colorSecondaryContainer">@color/blue</item>
         <item name="colorPrimaryDark">#254875</item>
         <item name="colorOnPrimary">@color/white</item>
         <item name="android:statusBarColor">@color/blue</item>
@@ -31,7 +32,6 @@
         <item name="clockFaceBackgroundColor">@color/lime</item>
         <item name="clockHandColor">@color/blue</item>
     </style>
-
 
 
 
