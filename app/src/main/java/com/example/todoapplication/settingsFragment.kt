@@ -2,12 +2,15 @@ package com.example.todoapplication
 
 import android.content.res.Configuration
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import com.example.todoapplication.databinding.ActivitySettingsFragmentBinding
 import java.util.Locale
 
@@ -46,7 +49,7 @@ class SettingsFragment : Fragment() {
         binding.autoComplete.setAdapter(arrayAdapterModes)
     }
 
-    private fun setAppLanguage(languageCode: String) {
+    private fun setAppLanguage(languageCode: String, languageName: String) {
         val locale = Locale(languageCode)
         Locale.setDefault(locale)
 
@@ -57,43 +60,30 @@ class SettingsFragment : Fragment() {
             configuration,
             requireContext().resources.displayMetrics
         )
+
+        Toast.makeText(requireContext(), "Language set to $languageName", Toast.LENGTH_SHORT).show()
+
+
     }
 
     private fun englishCase(selectedItem: String) {
-        if (selectedItem.contains("English")) {
-            setAppLanguage("en")
-            Toast.makeText(requireContext(), "Language set to English", Toast.LENGTH_SHORT)
-                .show()
-            requireActivity().recreate()
-        } else if (selectedItem.contains("Arabic")) {
-            setAppLanguage("ar")
-            Toast.makeText(requireContext(), "Language set to Arabic", Toast.LENGTH_SHORT)
-                .show()
-            requireActivity().recreate()
-        } else {
-            setAppLanguage("en")
-            Toast.makeText(requireContext(), "Language set to English", Toast.LENGTH_SHORT)
-                .show()
-            requireActivity().recreate()
+        when {
+            selectedItem.contains("english") -> setAppLanguage("en", selectedItem)
+            selectedItem.contains("arabic") -> setAppLanguage("ar", selectedItem)
+            else -> setAppLanguage("en", "Default (English)")
         }
     }
 
     private fun arabicCase(selectedItem: String) {
-        if (selectedItem.contains("الانجليزية")) {
-            setAppLanguage("en")
-            Toast.makeText(requireContext(), "اللغة المختارة الانجليزية", Toast.LENGTH_SHORT)
-                .show()
-            requireActivity().recreate()
-        } else if (selectedItem.contains("العربية")) {
-            setAppLanguage("ar")
-            Toast.makeText(requireContext(), "اللغة المختارة العربية", Toast.LENGTH_SHORT)
-                .show()
-            requireActivity().recreate()
-        } else {
-            setAppLanguage("ar")
-            Toast.makeText(requireContext(), "اللغة المختارة العربية", Toast.LENGTH_SHORT)
-                .show()
-            requireActivity().recreate()
+        when {
+            selectedItem.contains("الانجليزية") -> setAppLanguage("en", selectedItem)
+            selectedItem.contains("العربية") -> setAppLanguage("ar", selectedItem)
+            else -> setAppLanguage("ar", "العربية")
         }
+    }
+
+    private fun recreateFragment() {
+        val ft: FragmentTransaction = parentFragmentManager.beginTransaction()
+        ft.detach(this).attach(this).commit()
     }
 }
