@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.navigation_settings -> {
-                    pushFragment(settingsFragment())
+                    pushFragment(SettingsFragment())
                     changeTitlesettings()
                 }
             }

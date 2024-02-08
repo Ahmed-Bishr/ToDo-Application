@@ -79,7 +79,6 @@
     <style name="dateText">
         <item name="mcv_arrowColor">@color/blue</item>
         <item name="mcv_dateTextAppearance">@color/black</item>
-
     </style>
 
     <style name="Them_to_do" parent="Base.Theme.ToDo" />
