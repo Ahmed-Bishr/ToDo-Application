@@ -28,14 +28,7 @@ class listFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        // Kotlin
-        val calendarView = binding.calendarView
-        val selectedDayIndicator = R.drawable.day_indicator
-        calendarView.setOnDateChangeListener { view, year, month, dayOfMonth ->
-            // Customize the selected day indicator
-            calendarView.setBackgroundResource(R.drawable.day_indicator)
 
-        }
 
     }
 

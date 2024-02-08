@@ -1,3 +1,5 @@
+import kotlin.script.experimental.jvm.util.classpathFromClass
+
 plugins {
     id("com.android.application")
     id("kotlin-android")
@@ -41,16 +43,8 @@ android {
 
 dependencies {
 
-
     val roomVersion = "2.5.2"
 
-    implementation("androidx.core:core-ktx:1.8.0")
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.5.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation(libs.androidx.core)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -70,8 +64,7 @@ dependencies {
     // Swipe to delete library
     implementation("com.github.zerobranch:SwipeLayout:1.3.1")
 
-    implementation ("com.applandeo:material-calendar-view:1.7.0")
-    implementation ("com.applandeo:material-calendar-view:1.9.0-rc04")
+    implementation ("com.github.prolificinteractive:material-calendarview:2.0.0")
 
 }
 

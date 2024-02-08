@@ -26,7 +26,12 @@
         <item name="android:windowLightStatusBar">true</item>
     </style>
 
+    <style name="dateText">
+        <item name="mcv_arrowColor">@color/white</item>
+        <item name="mcv_dateTextAppearance">@color/white</item>
 
+
+    </style>
 
     <style name="fab_rounded" parent="ShapeAppearance.MaterialComponents.SmallComponent">
         <item name="cornerFamily">rounded</item>
