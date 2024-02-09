@@ -40,7 +40,7 @@
             android:background="@drawable/spinner_borders"
             android:drawablePadding="10dp"
             android:inputType="none"
-            android:text="@string/english"
+            android:text="@string/select_language"
             android:textColor="@color/blue"
             android:textStyle="bold" />
 
@@ -76,8 +76,8 @@
             android:drawableStart="@drawable/light_dark"
             android:drawablePadding="10dp"
             android:inputType="none"
+            android:text="@string/select_mode"
             android:background="@drawable/spinner_borders"
-            android:text="@string/light"
             android:textColor="@color/blue"
             android:textStyle="bold" />
 

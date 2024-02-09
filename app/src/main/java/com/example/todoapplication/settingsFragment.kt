@@ -38,12 +38,15 @@ class SettingsFragment : Fragment() {
             val selectedItem = parent.getItemAtPosition(position).toString()
             englishCase(selectedItem) // in case the language is English
             arabicCase(selectedItem) // in case the language is Arabic
+            binding.auto.setText(selectedItem)
             showSplashScreen()
         }
 
         binding.autoComplete.setOnItemClickListener { parent, view, position, id ->
             val selectedMode = parent.getItemAtPosition(position).toString()
-            changeMode(selectedMode)
+            changeModeEnglishCase(selectedMode)
+            changeModeArabicCase(selectedMode)
+            binding.autoComplete.setText(selectedMode)
             showSplashScreen()
         }
     }
@@ -69,10 +72,10 @@ class SettingsFragment : Fragment() {
 
         val resources = requireContext().resources
         resources.updateConfiguration(configuration, resources.displayMetrics)
-        Toast.makeText(requireContext(), "Language set to $languageName", Toast.LENGTH_SHORT).show()
+        //Toast.makeText(requireContext(), "Language set to $languageName", Toast.LENGTH_SHORT).show()
     }
 
-    private fun changeMode(selectedMode: String) {
+    private fun changeModeEnglishCase(selectedMode: String) {
         when (selectedMode) {
             "Dark" -> {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
@@ -89,12 +92,28 @@ class SettingsFragment : Fragment() {
         }
     }
 
+    private fun changeModeArabicCase(selectedMode: String) {
+        when (selectedMode) {
+            "داكن" -> {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            }
+
+            "مضئ" -> {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            }
+
+            "النظام" -> {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+            }
+
+        }
+    }
+
     private fun englishCase(selectedItem: String) {
         when {
             selectedItem.contentEquals("english") -> setAppLanguage("en", selectedItem)
             selectedItem.contentEquals("arabic") -> setAppLanguage("ar", selectedItem)
             else -> setAppLanguage("en", "Default (English)")
-
         }
     }
 

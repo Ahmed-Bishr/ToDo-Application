@@ -20,6 +20,8 @@
     <string name="light">Light</string>
     <string name="dark">Dark</string>
     <string name="english">English</string>
+    <string name="select_mode">Select Mode</string>
+    <string name="select_language">Select Language</string>
 
     <string-array name="languages">
         <item>English</item>

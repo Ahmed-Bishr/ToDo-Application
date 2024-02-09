@@ -21,6 +21,8 @@
     <string name="light">مضئ</string>
     <string name="dark">داكن</string>
     <string name="english">العربية</string>
+    <string name="select_mode">اختر الوضع</string>
+    <string name="select_language">اختر اللغة</string>
 
     <string-array name="languages">
         <item>الانجليزية</item>
