@@ -134,7 +134,7 @@ class SettingsFragment : Fragment() {
         }
     }
 
-    // Function to handle language selection for Arabic
+    // Function to handle language selection for Arabic and Default (Arabic)
     private fun arabicCase(selectedItem: String) {
         when {
             selectedItem.contentEquals("الانجليزية") -> setAppLanguage("en", selectedItem)
