@@ -23,6 +23,8 @@
     <string name="english">العربية</string>
     <string name="select_mode">اختر الوضع</string>
     <string name="select_language">اختر اللغة</string>
+    <string name="language_set">تم ضبط اللغة الي العربية</string>
+
 
     <string-array name="languages">
         <item>الانجليزية</item>

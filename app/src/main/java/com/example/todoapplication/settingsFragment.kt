@@ -37,7 +37,6 @@ class SettingsFragment : Fragment() {
             // Handle language selection for English and Arabic
             englishCase(selectedItem)
             arabicCase(selectedItem)
-
             showSplashScreen() // Show the splash screen after language selection
         }
 
@@ -86,8 +85,8 @@ class SettingsFragment : Fragment() {
 
         val resources = requireContext().resources
         resources.updateConfiguration(configuration, resources.displayMetrics)
-        // Toast message can be shown here
-        Toast.makeText(requireContext(), "Language set to $languageName", Toast.LENGTH_SHORT).show()
+        // set toast for the language selection
+        Toast.makeText(requireContext(), R.string.language_set, Toast.LENGTH_SHORT).show()
     }
 
     // Function to handle mode selection for English
