@@ -57,9 +57,6 @@
             app:labelVisibilityMode="unlabeled"
             app:menu="@menu/nav_menu">
 
-
-
-
         </com.google.android.material.bottomnavigation.BottomNavigationView>
     </com.google.android.material.appbar.AppBarLayout>
 

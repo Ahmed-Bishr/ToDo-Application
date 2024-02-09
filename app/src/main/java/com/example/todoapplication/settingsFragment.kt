@@ -1,5 +1,6 @@
 package com.example.todoapplication
 
+import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
 import android.os.Handler
@@ -36,13 +37,13 @@ class SettingsFragment : Fragment() {
             val selectedItem = parent.getItemAtPosition(position).toString()
             englishCase(selectedItem) // in case the language is English
             arabicCase(selectedItem) // in case the language is Arabic
-            requireActivity().recreate()
+            showSplashScreen()
         }
 
         binding.autoComplete.setOnItemClickListener { parent, view, position, id ->
             val selectedMode = parent.getItemAtPosition(position).toString()
             changeMode(selectedMode)
-            requireActivity().recreate()
+            showSplashScreen()
         }
     }
 
@@ -104,5 +105,12 @@ class SettingsFragment : Fragment() {
         }
     }
 
-
+    private fun showSplashScreen() {
+        val intent = Intent(requireContext(), splashScreen::class.java)
+        startActivity(intent)
+        requireActivity().overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+        requireActivity().finish()
+    }
 }
+
+
