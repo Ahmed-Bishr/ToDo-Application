@@ -11,12 +11,14 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import com.example.todoapplication.databinding.ActivityMainBinding
 import com.example.todoapplication.databinding.ActivitySettingsFragmentBinding
 import java.util.Locale
 
 class SettingsFragment : Fragment() {
 
     private lateinit var binding: ActivitySettingsFragmentBinding
+    private lateinit var bindingMain: ActivityMainBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,6 +36,7 @@ class SettingsFragment : Fragment() {
             val selectedItem = parent.getItemAtPosition(position).toString()
             englishCase(selectedItem) // in case the language is English
             arabicCase(selectedItem) // in case the language is Arabic
+            requireActivity().recreate()
         }
     }
 
@@ -56,14 +59,9 @@ class SettingsFragment : Fragment() {
         val configuration = Configuration()
         configuration.setLocale(locale)
 
-        requireContext().resources.updateConfiguration(
-            configuration,
-            requireContext().resources.displayMetrics
-        )
-
+        val resources = requireContext().resources
+        resources.updateConfiguration(configuration, resources.displayMetrics)
         Toast.makeText(requireContext(), "Language set to $languageName", Toast.LENGTH_SHORT).show()
-
-
     }
 
     private fun englishCase(selectedItem: String) {
@@ -71,6 +69,7 @@ class SettingsFragment : Fragment() {
             selectedItem.contains("english") -> setAppLanguage("en", selectedItem)
             selectedItem.contains("arabic") -> setAppLanguage("ar", selectedItem)
             else -> setAppLanguage("en", "Default (English)")
+
         }
     }
 
@@ -82,8 +81,6 @@ class SettingsFragment : Fragment() {
         }
     }
 
-    private fun recreateFragment() {
-        val ft: FragmentTransaction = parentFragmentManager.beginTransaction()
-        ft.detach(this).attach(this).commit()
-    }
+
+
 }
