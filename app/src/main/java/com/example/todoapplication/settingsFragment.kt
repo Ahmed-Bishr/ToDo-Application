@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import com.example.todoapplication.databinding.ActivitySettingsFragmentBinding
@@ -22,8 +23,8 @@ class SettingsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment using View Binding
-        binding = ActivitySettingsFragmentBinding.inflate(inflater)
+        binding =
+            ActivitySettingsFragmentBinding.inflate(inflater) // Inflate the layout for this fragment using View Binding
         return binding.root
     }
 
@@ -36,10 +37,8 @@ class SettingsFragment : Fragment() {
             // Handle language selection for English and Arabic
             englishCase(selectedItem)
             arabicCase(selectedItem)
-            // Update the text of the AutoCompleteTextView with the selected language
-            binding.auto.setText(selectedItem)
-            // Show the splash screen after language selection
-            showSplashScreen()
+
+            showSplashScreen() // Show the splash screen after language selection
         }
 
         // Set up the listener for mode selection dropdown
@@ -87,8 +86,8 @@ class SettingsFragment : Fragment() {
 
         val resources = requireContext().resources
         resources.updateConfiguration(configuration, resources.displayMetrics)
-        // Toast message can be shown here, but it's currently commented out
-        // Toast.makeText(requireContext(), "Language set to $languageName", Toast.LENGTH_SHORT).show()
+        // Toast message can be shown here
+        Toast.makeText(requireContext(), "Language set to $languageName", Toast.LENGTH_SHORT).show()
     }
 
     // Function to handle mode selection for English
