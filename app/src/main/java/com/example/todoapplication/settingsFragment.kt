@@ -1,5 +1,6 @@
 package com.example.todoapplication
 
+import android.app.ActivityOptions
 import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
@@ -107,8 +108,12 @@ class SettingsFragment : Fragment() {
 
     private fun showSplashScreen() {
         val intent = Intent(requireContext(), splashScreen::class.java)
-        startActivity(intent)
-        requireActivity().overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+        val options = ActivityOptions.makeCustomAnimation(
+            requireContext(),
+            android.R.anim.fade_in, // Enter animation resource
+            android.R.anim.fade_out // Exit animation resource
+        ).toBundle()
+        startActivity(intent, options)
         requireActivity().finish()
     }
 }
