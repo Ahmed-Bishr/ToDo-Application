@@ -126,9 +126,9 @@ class SettingsFragment : Fragment() {
     // Function to handle language selection for English and Default (English)
     private fun englishCase(selectedItem: String) {
         when {
-            selectedItem.contentEquals("english") -> setAppLanguage("en", selectedItem)
-            selectedItem.contentEquals("arabic") -> setAppLanguage("ar", selectedItem)
-            else -> setAppLanguage("en", "Default (English)")
+            selectedItem.contentEquals("English") -> setAppLanguage("en", selectedItem)
+            selectedItem.contentEquals("Arabic") -> setAppLanguage("ar", selectedItem)
+            else -> setAppLanguage("en", "English")
         }
     }
 

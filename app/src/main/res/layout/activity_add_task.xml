@@ -49,7 +49,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center|top"
-        android:text="@string/select_date"
+        android:hint="@string/select_date"
         android:textSize="20sp"
         android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="@+id/description_input"
@@ -62,7 +62,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center|top"
         android:layout_marginTop="20dp"
-        android:text="@string/select_time"
+        android:hint="@string/select_time"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/description_input"
         app:layout_constraintTop_toBottomOf="@+id/description_input" />
