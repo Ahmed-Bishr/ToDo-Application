@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.example.todoapplication.databinding.ActivityMainBinding
@@ -18,7 +19,6 @@ import java.util.Locale
 class SettingsFragment : Fragment() {
 
     private lateinit var binding: ActivitySettingsFragmentBinding
-    private lateinit var bindingMain: ActivityMainBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,6 +36,12 @@ class SettingsFragment : Fragment() {
             val selectedItem = parent.getItemAtPosition(position).toString()
             englishCase(selectedItem) // in case the language is English
             arabicCase(selectedItem) // in case the language is Arabic
+            requireActivity().recreate()
+        }
+
+        binding.autoComplete.setOnItemClickListener { parent, view, position, id ->
+            val selectedMode = parent.getItemAtPosition(position).toString()
+            changeMode(selectedMode)
             requireActivity().recreate()
         }
     }
@@ -64,10 +70,27 @@ class SettingsFragment : Fragment() {
         Toast.makeText(requireContext(), "Language set to $languageName", Toast.LENGTH_SHORT).show()
     }
 
+    private fun changeMode(selectedMode: String) {
+        when (selectedMode) {
+            "Dark" -> {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            }
+
+            "Light" -> {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            }
+
+            "System" -> {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+            }
+
+        }
+    }
+
     private fun englishCase(selectedItem: String) {
         when {
-            selectedItem.contains("english") -> setAppLanguage("en", selectedItem)
-            selectedItem.contains("arabic") -> setAppLanguage("ar", selectedItem)
+            selectedItem.contentEquals("english") -> setAppLanguage("en", selectedItem)
+            selectedItem.contentEquals("arabic") -> setAppLanguage("ar", selectedItem)
             else -> setAppLanguage("en", "Default (English)")
 
         }
@@ -75,12 +98,11 @@ class SettingsFragment : Fragment() {
 
     private fun arabicCase(selectedItem: String) {
         when {
-            selectedItem.contains("الانجليزية") -> setAppLanguage("en", selectedItem)
-            selectedItem.contains("العربية") -> setAppLanguage("ar", selectedItem)
+            selectedItem.contentEquals("الانجليزية") -> setAppLanguage("en", selectedItem)
+            selectedItem.contentEquals("العربية") -> setAppLanguage("ar", selectedItem)
             else -> setAppLanguage("ar", "العربية")
         }
     }
-
 
 
 }

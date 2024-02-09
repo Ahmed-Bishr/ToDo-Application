@@ -33,46 +33,59 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/navigation_button"
-        style="@style/MyBottomNavigationView"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="@drawable/adjust_bar"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp"
-        app:itemActiveIndicatorStyle="@android:color/transparent"
-        app:itemIconSize="28dp"
-        app:itemIconTint="@color/selector_btm_nav_icon"
-        app:labelVisibilityMode="unlabeled"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/second_app_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/adjust_view"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/nav_menu" />
+        app:layout_constraintStart_toStartOf="parent">
 
-    <FrameLayout
-        android:id="@+id/frame_layout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/navigation_button"
+            style="@style/MyBottomNavigationView"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="50dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:background="@android:color/transparent"
+            app:itemActiveIndicatorStyle="@android:color/transparent"
+            app:itemIconSize="28dp"
+            app:itemIconTint="@color/selector_btm_nav_icon"
+            app:labelVisibilityMode="unlabeled"
+            app:menu="@menu/nav_menu">
+
+
+
+
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
+    </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button"
         android:layout_width="58dp"
-        android:layout_height="wrap_content"
+        android:layout_height="58dp"
         android:layout_gravity="center|bottom"
         android:layout_marginBottom="60dp"
-        android:background="@drawable/adjust_buttonlist"
+        android:background="@android:color/transparent"
         android:contentDescription="@string/app_name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
 
+    <FrameLayout
+        android:id="@+id/frame_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/second_app_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+

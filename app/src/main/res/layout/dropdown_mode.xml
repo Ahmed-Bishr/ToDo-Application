@@ -8,5 +8,4 @@
     android:padding="14dp"
     android:textColor="@color/blue"
     android:drawablePadding="10dp"
-    android:drawableStart="@drawable/light_dark"
  />

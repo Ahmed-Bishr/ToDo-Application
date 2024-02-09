@@ -26,8 +26,8 @@ class MainActivity : AppCompatActivity() {
                     pushFragment(SettingsFragment())
                     changeTitlesettings()
                 }
-            }
 
+            }
             return@setOnItemSelectedListener true
         }
         binding.navigationButton.selectedItemId = R.id.navigation_tasks // initialize fragment
