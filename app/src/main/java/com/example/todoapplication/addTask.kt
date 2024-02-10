@@ -10,27 +10,36 @@ import com.example.todoapplication.databinding.ActivityAddTaskBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import java.util.Calendar
 
-class addTask : BottomSheetDialogFragment() {
+class AddTask : BottomSheetDialogFragment() {
 
     lateinit var binding: ActivityAddTaskBinding
     lateinit var calendar: Calendar
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        // Inflate the layout for this fragment
         binding = ActivityAddTaskBinding.inflate(inflater)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        // Set click listeners for buttons
         binding.done.setOnClickListener {
+            // Validate task input, description input, and date input
             validationTaskInput()
             validationDescriptionInput()
             validationDateInput()
         }
+
+        // Initialize calendar instance
         calendar = Calendar.getInstance()
+
+        // Set click listener for date picker
         binding.date.setOnClickListener {
             val picker = DatePickerDialog(
                 requireContext(),
@@ -44,6 +53,7 @@ class addTask : BottomSheetDialogFragment() {
             picker.show()
         }
 
+        // Set click listener for time picker
         binding.time.setOnClickListener {
             val picker = TimePickerDialog(
                 requireContext(),
@@ -54,9 +64,9 @@ class addTask : BottomSheetDialogFragment() {
             )
             picker.show()
         }
-
     }
 
+    // Validate task input
     private fun validationTaskInput(): Boolean {
         if (binding.taskInput.text?.isEmpty() == true || binding.taskInput.text?.isBlank() == true) {
             binding.taskInput.error = "Required Field"
@@ -66,6 +76,7 @@ class addTask : BottomSheetDialogFragment() {
         return true
     }
 
+    // Validate description input
     private fun validationDescriptionInput(): Boolean {
         if (binding.descriptionInput.text?.isEmpty() == true || binding.descriptionInput.text?.isBlank() == true) {
             binding.descriptionInput.error = "Required Field"
@@ -75,6 +86,7 @@ class addTask : BottomSheetDialogFragment() {
         return true
     }
 
+    // Validate date input
     private fun validationDateInput(): Boolean {
         if (binding.date.text?.isEmpty() == true || binding.date.text?.isBlank() == true) {
             binding.date.error = "Required Field"
@@ -84,6 +96,7 @@ class addTask : BottomSheetDialogFragment() {
         return true
     }
 
+    // Set date from date picker
     private fun dateFromDatePicker(year: Int, month: Int, dayOfMonth: Int) {
         calendar.set(Calendar.YEAR, year)
         calendar.set(Calendar.MONTH, month)
@@ -91,6 +104,7 @@ class addTask : BottomSheetDialogFragment() {
         binding.date.text = "$dayOfMonth/${month + 1}/$year"
     }
 
+    // Set time from time picker
     private fun timeFromTimePicker(hourOfDay: Int, minute: Int) {
         calendar.set(Calendar.HOUR_OF_DAY, hourOfDay)
         calendar.set(Calendar.MINUTE, minute)
@@ -102,5 +116,4 @@ class addTask : BottomSheetDialogFragment() {
             binding.time.text = "$hourOfDay:$minute :am"
         }
     }
-
 }
