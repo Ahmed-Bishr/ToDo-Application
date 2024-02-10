@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         binding.navigationButton.selectedItemId = R.id.navigation_tasks // initialize fragment
 
         binding.button.setOnClickListener {
-            val buttonSheetDialogFragment = addTask()
+            val buttonSheetDialogFragment = AddTask()
             buttonSheetDialogFragment.show(supportFragmentManager,null)
         }
     }
