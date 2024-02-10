@@ -35,10 +35,7 @@ class addTask : BottomSheetDialogFragment() {
             val picker = DatePickerDialog(
                 requireContext(),
                 { view, year, month, dayOfMonth ->
-                    calendar.set(Calendar.YEAR, year)
-                    calendar.set(Calendar.MONTH, month)
-                    calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
-                    binding.date.text = "$dayOfMonth/${month + 1}/$year"
+                    dateFromDatePicker(year, month, dayOfMonth)
                 },
                 calendar.get(Calendar.YEAR),
                 calendar.get(Calendar.MONTH),
@@ -47,20 +44,11 @@ class addTask : BottomSheetDialogFragment() {
             picker.show()
         }
 
-        calendar
         binding.time.setOnClickListener {
             val picker = TimePickerDialog(
                 requireContext(),
                 { view, hourOfDay, minute ->
-                    calendar.set(Calendar.HOUR_OF_DAY, hourOfDay)
-                    calendar.set(Calendar.MINUTE, minute)
-                    if (hourOfDay == 12) {
-                        binding.time.text = "${hourOfDay}:$minute :pm"
-                    } else if (hourOfDay > 12) {
-                        binding.time.text = "${hourOfDay - 12}:$minute :pm"
-                    } else if (hourOfDay < 12) {
-                        binding.time.text = "$hourOfDay:$minute :am"
-                    }
+                    timeFromTimePicker(hourOfDay, minute)
                 }, calendar.get(Calendar.HOUR_OF_DAY),
                 calendar.get(Calendar.MINUTE), false
             )
@@ -94,6 +82,25 @@ class addTask : BottomSheetDialogFragment() {
         } else
             binding.date.error = null
         return true
+    }
+
+    private fun dateFromDatePicker(year: Int, month: Int, dayOfMonth: Int) {
+        calendar.set(Calendar.YEAR, year)
+        calendar.set(Calendar.MONTH, month)
+        calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+        binding.date.text = "$dayOfMonth/${month + 1}/$year"
+    }
+
+    private fun timeFromTimePicker(hourOfDay: Int, minute: Int) {
+        calendar.set(Calendar.HOUR_OF_DAY, hourOfDay)
+        calendar.set(Calendar.MINUTE, minute)
+        if (hourOfDay == 12) {
+            binding.time.text = "${hourOfDay}:$minute :pm"
+        } else if (hourOfDay > 12) {
+            binding.time.text = "${hourOfDay - 12}:$minute :pm"
+        } else if (hourOfDay < 12) {
+            binding.time.text = "$hourOfDay:$minute :am"
+        }
     }
 
 }
