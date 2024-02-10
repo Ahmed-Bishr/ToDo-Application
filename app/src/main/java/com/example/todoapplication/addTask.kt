@@ -18,7 +18,7 @@ class addTask : BottomSheetDialogFragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = ActivityAddTaskBinding.inflate(inflater)
         return binding.root
     }
@@ -26,7 +26,9 @@ class addTask : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.done.setOnClickListener {
-            validationInput()
+            validationTaskInput()
+            validationDescriptionInput()
+            validationDateInput()
         }
         calendar = Calendar.getInstance()
         binding.date.setOnClickListener {
@@ -66,18 +68,26 @@ class addTask : BottomSheetDialogFragment() {
         }
 
     }
-    private fun validationInput(): Boolean {
+
+    private fun validationTaskInput(): Boolean {
         if (binding.taskInput.text?.isEmpty() == true || binding.taskInput.text?.isBlank() == true) {
             binding.taskInput.error = "Required Field"
             return false
         } else
             binding.taskInput.error = null
+        return true
+    }
 
+    private fun validationDescriptionInput(): Boolean {
         if (binding.descriptionInput.text?.isEmpty() == true || binding.descriptionInput.text?.isBlank() == true) {
             binding.descriptionInput.error = "Required Field"
             return false
         } else
             binding.descriptionInput.error = null
+        return true
+    }
+
+    private fun validationDateInput(): Boolean {
         if (binding.date.text?.isEmpty() == true || binding.date.text?.isBlank() == true) {
             binding.date.error = "Required Field"
             return false
