@@ -4,12 +4,14 @@ import android.app.ActivityOptions
 import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.os.LocaleListCompat
 import androidx.fragment.app.Fragment
 import com.example.todoapplication.databinding.ActivitySettingsFragmentBinding
 import java.util.Locale
@@ -77,14 +79,7 @@ class SettingsFragment : Fragment() {
 
     // Function to set the application language
     private fun setAppLanguage(languageCode: String, languageName: String) {
-        val locale = Locale(languageCode)
-        Locale.setDefault(locale)
-
-        val configuration = Configuration()
-        configuration.setLocale(locale)
-
-        val resources = requireContext().resources
-        resources.updateConfiguration(configuration, resources.displayMetrics)
+        AppCompatDelegate.setApplicationLocales(LocaleListCompat.create(Locale(languageCode)))
         // set toast for the language selection
         Toast.makeText(requireContext(), R.string.language_set, Toast.LENGTH_SHORT).show()
     }
@@ -126,7 +121,11 @@ class SettingsFragment : Fragment() {
     // Function to handle language selection for English and Default (English)
     private fun englishCase(selectedItem: String) {
         when {
-            selectedItem.contentEquals("English") -> setAppLanguage("en", selectedItem)
+            selectedItem.contentEquals("English") -> {
+                Log.e("TAG", "englishCase:  inside english block", )
+                setAppLanguage("en", selectedItem)
+            }
+
             selectedItem.contentEquals("Arabic") -> setAppLanguage("ar", selectedItem)
             else -> setAppLanguage("en", "English")
         }
@@ -149,6 +148,7 @@ class SettingsFragment : Fragment() {
             android.R.anim.fade_in, // Enter animation resource
             android.R.anim.fade_out // Exit animation resource
         ).toBundle()
+//        options.get
         startActivity(intent, options)
         requireActivity().finish()
     }
