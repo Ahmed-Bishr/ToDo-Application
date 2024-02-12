@@ -34,7 +34,6 @@ class Adaptor(var tasks: List<Task>? = null) : Adapter<Adaptor.TasksViewHolder>(
     class TasksViewHolder(val binding: ActivityAddTaskBinding) : ViewHolder(binding.root) {
         fun bind(task: Task) {
             binding.taskInput.text = Editable.Factory.getInstance().newEditable(task.title)
-            binding.descriptionInput.text = Editable.Factory.getInstance().newEditable(task.description)
             binding.time.text = task.date.toString()
         }
 

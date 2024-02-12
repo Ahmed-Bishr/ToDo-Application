@@ -23,7 +23,7 @@ interface TaskDao {
     fun getTask():List<Task>
 
     @Query("SELECT * FROM taskToDo WHERE date = :date")
-    fun getTaskByDate(date : Date) : List<Task>
+    fun getTaskByDate(date : Long) : List<Task>
 
 
 }
