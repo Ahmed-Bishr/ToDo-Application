@@ -15,6 +15,7 @@ import com.example.todoapplication.databinding.ActivityListFragmentBinding
 class listFragment : Fragment() {
 
     lateinit var binding: ActivityListFragmentBinding
+    lateinit var adaptor: Adaptor
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -28,7 +29,10 @@ class listFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        adaptor = Adaptor(null)
+        binding.listTaskRv.adapter = adaptor
+        val tasks = TaskDataBase.getInstance(requireContext()).getDoa().getTask()
+        adaptor.upDateData(tasks)
 
     }
 

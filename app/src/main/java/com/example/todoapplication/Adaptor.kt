@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.todoapplication.databinding.ActivityAddTaskBinding
 import com.example.todoapplication.databinding.ActivityListFragmentBinding
 
-class Adaptor(val tasks: List<Task>? = null) : Adapter<Adaptor.TasksViewHolder>() {
+class Adaptor(var tasks: List<Task>? = null) : Adapter<Adaptor.TasksViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TasksViewHolder {
         var context = parent.context
@@ -24,6 +24,11 @@ class Adaptor(val tasks: List<Task>? = null) : Adapter<Adaptor.TasksViewHolder>(
     override fun onBindViewHolder(holder: TasksViewHolder, position: Int) {
         val items = tasks?.get(position)?:return
         holder.bind(items)
+    }
+
+    fun upDateData(tasks: List<Task>) {
+        this.tasks = tasks
+        notifyDataSetChanged()
     }
 
     class TasksViewHolder(val binding: ActivityAddTaskBinding) : ViewHolder(binding.root) {
