@@ -3,6 +3,7 @@ import kotlin.script.experimental.jvm.util.classpathFromClass
 plugins {
     id("com.android.application")
     id("kotlin-android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -57,14 +58,14 @@ dependencies {
 
     // Room
     implementation("androidx.room:room-runtime:$roomVersion")
-
+    kapt("androidx.room:room-compiler:$roomVersion")
     // LeakCanary
     debugImplementation("com.squareup.leakcanary:leakcanary-android:2.12")
 
     // Swipe to delete library
     implementation("com.github.zerobranch:SwipeLayout:1.3.1")
 
-    implementation ("com.github.prolificinteractive:material-calendarview:2.0.0")
+    implementation("com.github.prolificinteractive:material-calendarview:2.0.0")
 
 }
 
