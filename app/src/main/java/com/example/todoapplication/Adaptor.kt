@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.todoapplication.databinding.ActivityAddTaskBinding
 import com.example.todoapplication.databinding.ActivityListFragmentBinding
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 class Adaptor(var tasks: List<Task>? = null) : Adapter<Adaptor.TasksViewHolder>() {
 
@@ -22,7 +24,7 @@ class Adaptor(var tasks: List<Task>? = null) : Adapter<Adaptor.TasksViewHolder>(
     }
 
     override fun onBindViewHolder(holder: TasksViewHolder, position: Int) {
-        val items = tasks?.get(position)?:return
+        var items = tasks?.get(position) ?: return
         holder.bind(items)
     }
 
@@ -34,7 +36,10 @@ class Adaptor(var tasks: List<Task>? = null) : Adapter<Adaptor.TasksViewHolder>(
     class TasksViewHolder(val binding: ActivityAddTaskBinding) : ViewHolder(binding.root) {
         fun bind(task: Task) {
             binding.taskInput.text = Editable.Factory.getInstance().newEditable(task.title)
-            binding.time.text = task.date.toString()
+            val simpleDateFormat = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
+            if (task.date != null)
+                binding.date.text = simpleDateFormat.format(task.date)
+
         }
 
     }

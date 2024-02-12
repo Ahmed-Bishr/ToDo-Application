@@ -20,10 +20,10 @@ interface TaskDao {
     fun updateTask(task: Task)
 
     @Query("SELECT * FROM taskToDo")
-    fun getTask():List<Task>
+    fun getAllTask():List<Task>
 
     @Query("SELECT * FROM taskToDo WHERE date = :date")
-    fun getTaskByDate(date : Long) : List<Task>
+    fun getTaskByDate(date : Date) : List<Task>
 
 
 }

@@ -8,7 +8,7 @@
     android:layout_height="330dp"
     android:layout_margin="10dp"
     android:background="@drawable/add_task_borders"
-    tools:context=".addTask">
+    tools:context=".AddTask">
 
 
     <View
@@ -81,11 +81,3 @@
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-    <!--
-
-
-
-
-    -->

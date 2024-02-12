@@ -31,7 +31,7 @@ class listFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         adaptor = Adaptor(null)
         binding.listTaskRv.adapter = adaptor
-        val tasks = TaskDataBase.getInstance(requireContext()).getDoa().getTask()
+        val tasks = TaskDataBase.getInstance(requireContext()).getDoa().getAllTask()
         adaptor.upDateData(tasks)
 
     }
