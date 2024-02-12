@@ -32,8 +32,8 @@ class AddTask : BottomSheetDialogFragment() {
         binding.done.setOnClickListener {
             // Validate task input, description input, and date input
             if (validationTaskInput() && validationDescriptionInput() && validationDateInput()) {
-                Data.getInstance(requireContext()).getDoa().insertTask(
-                    TaskDataBase(
+                TaskDataBase.getInstance(requireContext()).getDoa().insertTask(
+                    Task(
                         title = binding.taskInput.text.toString(),
                         description = binding.descriptionInput.text.toString(),
                         date = calendar.time,

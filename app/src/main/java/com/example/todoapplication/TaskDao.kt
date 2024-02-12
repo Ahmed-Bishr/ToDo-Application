@@ -11,19 +11,19 @@ import java.util.Date
 interface TaskDao {
 
     @Insert
-    fun insertTask(taskDataBase: TaskDataBase)
+    fun insertTask(task: Task)
 
     @Delete
-    fun deleteTask(taskDataBase: TaskDataBase)
+    fun deleteTask(task: Task)
 
     @Update
-    fun updateTask(taskDataBase: TaskDataBase)
+    fun updateTask(task: Task)
 
     @Query("SELECT * FROM taskToDo")
-    fun getTask():List<TaskDataBase>
+    fun getTask():List<Task>
 
     @Query("SELECT * FROM taskToDo WHERE date = :date")
-    fun getTaskByDate(date : Date) : List<TaskDataBase>
+    fun getTaskByDate(date : Date) : List<Task>
 
 
 }
