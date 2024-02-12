@@ -31,9 +31,19 @@ class AddTask : BottomSheetDialogFragment() {
         // Set click listeners for buttons
         binding.done.setOnClickListener {
             // Validate task input, description input, and date input
-            validationTaskInput()
-            validationDescriptionInput()
-            validationDateInput()
+            if (validationTaskInput() && validationDescriptionInput() && validationDateInput()) {
+                Data.getInstance(requireContext()).getDoa().insertTask(
+                    TaskDataBase(
+                        title = binding.taskInput.text.toString(),
+                        description = binding.descriptionInput.text.toString(),
+                        date = calendar.time,
+                        isDone = false
+                    )
+                )
+                dismiss()
+            }
+
+
         }
 
         // Initialize calendar instance
@@ -108,12 +118,20 @@ class AddTask : BottomSheetDialogFragment() {
     private fun timeFromTimePicker(hourOfDay: Int, minute: Int) {
         calendar.set(Calendar.HOUR_OF_DAY, hourOfDay)
         calendar.set(Calendar.MINUTE, minute)
-        if (hourOfDay == 12) {
-            binding.time.text = "${hourOfDay}:$minute :pm"
+        var minuteAdjust : String
+        if (minute < 10){
+            minuteAdjust = "0$minute"
+        }else{
+            minuteAdjust = "$minute"
+        }
+        if (hourOfDay == 0) {
+            binding.time.text = "${hourOfDay + 12}:$minuteAdjust :am"
         } else if (hourOfDay > 12) {
-            binding.time.text = "${hourOfDay - 12}:$minute :pm"
+            binding.time.text = "${hourOfDay - 12}:$minuteAdjust :pm"
         } else if (hourOfDay < 12) {
-            binding.time.text = "$hourOfDay:$minute :am"
+            binding.time.text = "$hourOfDay:$minuteAdjust :am"
+        } else if (hourOfDay == 12) {
+            binding.time.text = "${hourOfDay}:$minuteAdjust :pm"
         }
     }
 }
