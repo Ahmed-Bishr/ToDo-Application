@@ -4,18 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.graphics.drawable.toDrawable
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import com.example.todoapplication.databinding.ActivityListFragmentBinding
 
 class listFragment : Fragment() {
 
     lateinit var binding: ActivityListFragmentBinding
-    lateinit var adaptor: Adaptor
+    lateinit var taskAdaptor: TaskAdaptor
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -29,10 +24,10 @@ class listFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        adaptor = Adaptor(null)
-        binding.listTaskRv.adapter = adaptor
+        taskAdaptor = TaskAdaptor(null)
+        binding.listTaskRv.adapter = taskAdaptor
         val tasks = TaskDataBase.getInstance(requireContext()).getDoa().getAllTask()
-        adaptor.upDateData(tasks)
+        taskAdaptor.upDateData(tasks)
 
     }
 

@@ -6,11 +6,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.todoapplication.databinding.ActivityAddTaskBinding
-import com.example.todoapplication.databinding.ActivityListFragmentBinding
 import java.text.SimpleDateFormat
 import java.util.Locale
 
-class Adaptor(var tasks: List<Task>? = null) : Adapter<Adaptor.TasksViewHolder>() {
+class TaskAdaptor(var tasks: List<Task>?) : Adapter<TaskAdaptor.TasksViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TasksViewHolder {
         var context = parent.context
