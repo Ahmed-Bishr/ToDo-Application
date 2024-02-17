@@ -12,9 +12,9 @@ import java.util.Locale
 class TaskAdaptor(var tasks: List<Task>?) : Adapter<TaskAdaptor.TasksViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TasksViewHolder {
-        var context = parent.context
-        var inflater = LayoutInflater.from(context)
-        var binding = ActivityAddTaskBinding.inflate(inflater, parent, false)
+        val context = parent.context
+        val inflater = LayoutInflater.from(context)
+        val binding = ActivityAddTaskBinding.inflate(inflater, parent, false)
         return TasksViewHolder(binding)
     }
 
@@ -23,7 +23,7 @@ class TaskAdaptor(var tasks: List<Task>?) : Adapter<TaskAdaptor.TasksViewHolder>
     }
 
     override fun onBindViewHolder(holder: TasksViewHolder, position: Int) {
-        var items = tasks?.get(position) ?: return
+        val items = tasks?.get(position) ?: return
         holder.bind(items)
     }
 
@@ -38,7 +38,6 @@ class TaskAdaptor(var tasks: List<Task>?) : Adapter<TaskAdaptor.TasksViewHolder>
             val simpleDateFormat = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
             if (task.date != null)
                 binding.date.text = simpleDateFormat.format(task.date)
-
         }
 
     }
