@@ -9,22 +9,24 @@ import androidx.room.TypeConverters
 
 @Database(entities = [Task::class], version = 1)
 @TypeConverters(value = [DateTypeConverter::class])
-abstract class TaskDataBase : RoomDatabase() {
-    abstract fun getDoa(): TaskDao
+abstract class TaskDatabase : RoomDatabase() {
+    abstract fun getTasksDao(): TaskDao
 
     companion object {
-        private var INSTANCE: TaskDataBase? = null
-        private val dataBaseName = "Task Database table"
-        fun getInstance(context: Context): TaskDataBase {
+        private var INSTANCE: TaskDatabase? = null
+        val DATA_BASE_NAME = "Tasks Database"
+        fun getInstance(context: Context): TaskDatabase {
             if (INSTANCE == null) {
+                INSTANCE =
+                    Room.databaseBuilder(context, TaskDatabase::class.java, DATA_BASE_NAME)
+                        .fallbackToDestructiveMigration() // Production - Migrations
+                        .allowMainThreadQueries() // X -> main Thread - UI Thread
+                        .build()
 
-                INSTANCE = Room.databaseBuilder(context, TaskDataBase::class.java, dataBaseName)
-                    .allowMainThreadQueries()
-                    .fallbackToDestructiveMigration()
-                    .build()
             }
             return INSTANCE!!
         }
     }
 
 }
+

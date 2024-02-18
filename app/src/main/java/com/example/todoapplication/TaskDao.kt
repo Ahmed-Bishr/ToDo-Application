@@ -9,7 +9,6 @@ import java.util.Date
 
 @Dao
 interface TaskDao {
-
     @Insert
     fun insertTask(task: Task)
 
@@ -19,11 +18,11 @@ interface TaskDao {
     @Update
     fun updateTask(task: Task)
 
-    @Query("SELECT * FROM taskToDo")
-    fun getAllTask():List<Task>
+    @Query("SELECT * FROM Todos")
+    fun getAllTasks(): List<Task>
 
-    @Query("SELECT * FROM taskToDo WHERE date = :date")
-    fun getTaskByDate(date : Date) : List<Task>
+    @Query("SELECT * FROM Todos WHERE date = :dateTime")
+    fun getTasksByDate(dateTime: Date): List<Task>
 
 
 }

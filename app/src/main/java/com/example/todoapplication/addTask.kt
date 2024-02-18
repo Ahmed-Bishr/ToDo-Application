@@ -27,32 +27,30 @@ class AddTask : BottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         // Set click listeners for buttons
         binding.done.setOnClickListener {
-            // Validate task input, description input, and date input
-            if (validationTaskInput() && validationDescriptionInput() && validationDateInput()) {
+            if (validateFields()) {
                 calendar.set(Calendar.HOUR_OF_DAY, 0)
                 calendar.set(Calendar.MINUTE, 0)
                 calendar.set(Calendar.SECOND, 0)
                 calendar.set(Calendar.MILLISECOND, 0)
-                TaskDataBase.getInstance(requireContext()).getDoa().insertTask(
-                    Task(
-                        title = binding.taskInput.text.toString(),
-                        description = binding.descriptionInput.text.toString(),
-                        date = calendar.time,
-                        isDone = false
+                TaskDatabase
+                    .getInstance(requireContext())
+                    .getTasksDao()
+                    .insertTask(
+                        Task(
+                            title = binding.taskInput.text.toString(),
+                            description = binding.descriptionInput.text.toString(),
+                            date = calendar.time,
+                            isDone = false
+                        )
                     )
-                )
                 dismiss()
             }
-
-
         }
 
         // Initialize calendar instance
         calendar = Calendar.getInstance()
-
         // Set click listener for date picker
         binding.date.setOnClickListener {
             val picker = DatePickerDialog(
@@ -73,11 +71,19 @@ class AddTask : BottomSheetDialogFragment() {
                 requireContext(),
                 { view, hourOfDay, minute ->
                     timeFromTimePicker(hourOfDay, minute)
-                }, calendar.get(Calendar.HOUR_OF_DAY),
+                },
+                calendar.get(Calendar.HOUR_OF_DAY),
                 calendar.get(Calendar.MINUTE), false
             )
             picker.show()
         }
+    }
+
+    private fun validateFields(): Boolean {
+        validationDateInput()
+        validationTaskInput()
+        validationDescriptionInput()
+        return true
     }
 
     // Validate task input
@@ -122,10 +128,10 @@ class AddTask : BottomSheetDialogFragment() {
     private fun timeFromTimePicker(hourOfDay: Int, minute: Int) {
         calendar.set(Calendar.HOUR_OF_DAY, hourOfDay)
         calendar.set(Calendar.MINUTE, minute)
-        var minuteAdjust : String
-        if (minute < 10){
+        var minuteAdjust: String
+        if (minute < 10) {
             minuteAdjust = "0$minute"
-        }else{
+        } else {
             minuteAdjust = "$minute"
         }
         if (hourOfDay == 0) {

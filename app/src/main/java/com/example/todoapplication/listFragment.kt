@@ -12,9 +12,8 @@ import java.util.Calendar
 class listFragment : Fragment() {
 
     lateinit var binding: ActivityListFragmentBinding
-    lateinit var taskAdaptor: TaskAdaptor
+    lateinit var adaptor: TaskAdaptor
     lateinit var calendar: Calendar
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -27,11 +26,10 @@ class listFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        taskAdaptor = TaskAdaptor(null)
-        binding.listTaskRv.adapter = taskAdaptor
-        val tasks = TaskDataBase.getInstance(requireContext()).getDoa().getAllTask()
-        taskAdaptor.upDateData(tasks)
-        calendar = Calendar.getInstance()
+        adaptor = TaskAdaptor(null)
+        binding.listTaskRv.adapter = adaptor
+        calendar = Calendar.getInstance() // 2/3/2024 2:10PM 1212313211
+        //   2/3/2024 2:12PM                                1212313213
         binding.calendarView.setOnDateChangedListener { widget, date, selected ->
             calendar.set(Calendar.YEAR, date.year)
             calendar.set(Calendar.MONTH, date.month - 1)
@@ -39,13 +37,14 @@ class listFragment : Fragment() {
             calendar.set(Calendar.MINUTE, 0)
             calendar.set(Calendar.SECOND, 0)
             calendar.set(Calendar.MILLISECOND, 0)
+            Log.e("TAG", "onViewCreated: CALENDAR LIBRARY DATE ${date.month}")
+            Log.e("TAG", "onViewCreated: Calendar ${calendar.get(Calendar.MONTH)}")
             calendar.set(Calendar.DAY_OF_MONTH, date.day)
             val tasks = TaskDataBase
                 .getInstance(requireContext())
                 .getDoa()
-                .getTaskByDate(calendar.time)
-            taskAdaptor.upDateData(tasks)
+                .getTasksByDate(calendar.time)
+            adaptor.updateData(tasks)
         }
-
     }
 }

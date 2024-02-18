@@ -4,14 +4,12 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.util.Date
 
-@Entity(tableName = "taskToDo")
+@Entity(tableName = "Todos")
 data class Task(
-
     @PrimaryKey(autoGenerate = true)
-    var id : Int? = null,
-    var title: String? = null,
-    var description: String? = null,
-    var date: Date? = null,
-    var isDone : Boolean? = null
-
-    )
+    var id: Int? = null,
+    val title: String? = null,
+    val description: String? = null,
+    val date: Date? = null,
+    var isDone: Boolean? = null,
+)

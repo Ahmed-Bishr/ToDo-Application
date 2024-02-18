@@ -6,41 +6,41 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.todoapplication.databinding.ActivityAddTaskBinding
+import com.example.todoapplication.databinding.TaskItemBinding
 import java.text.SimpleDateFormat
 import java.util.Locale
 
-class TaskAdaptor(var tasks: List<Task>?) : Adapter<TaskAdaptor.TasksViewHolder>() {
+class TaskAdaptor(var tasks: List<Task>?) : Adapter<TaskAdaptor.TaskViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TasksViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
         val context = parent.context
         val inflater = LayoutInflater.from(context)
-        val binding = ActivityAddTaskBinding.inflate(inflater, parent, false)
-        return TasksViewHolder(binding)
+        val binding = TaskItemBinding.inflate(inflater, parent, false)
+        return TaskViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
         return tasks?.size ?: 0
     }
 
-    override fun onBindViewHolder(holder: TasksViewHolder, position: Int) {
-        val items = tasks?.get(position) ?: return
-        holder.bind(items)
+    override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
+        val item = tasks?.get(position) ?: return
+        holder.bind(item)
     }
 
-    fun upDateData(tasks: List<Task>) {
+    fun updateData(tasks: List<Task>) {
         this.tasks = tasks
         notifyDataSetChanged()
     }
 
-    class TasksViewHolder(val binding: ActivityAddTaskBinding) : ViewHolder(binding.root) {
+    class TaskViewHolder(val binding : TaskItemBinding) : ViewHolder(binding.root) {
         fun bind(task: Task) {
-            binding.taskInput.text = Editable.Factory.getInstance().newEditable(task.title)
+            binding.taskName.text = task.title
             val simpleDateFormat = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
             if (task.date != null)
-                binding.date.text = simpleDateFormat.format(task.date)
+                binding.taskTime.text = simpleDateFormat.format(task.date)
         }
 
     }
-
 
 }
