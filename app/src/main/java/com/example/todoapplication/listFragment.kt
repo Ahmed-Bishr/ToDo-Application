@@ -40,9 +40,9 @@ class listFragment : Fragment() {
             Log.e("TAG", "onViewCreated: CALENDAR LIBRARY DATE ${date.month}")
             Log.e("TAG", "onViewCreated: Calendar ${calendar.get(Calendar.MONTH)}")
             calendar.set(Calendar.DAY_OF_MONTH, date.day)
-            val tasks = TaskDataBase
+            val tasks = TaskDatabase
                 .getInstance(requireContext())
-                .getDoa()
+                .getTasksDao()
                 .getTasksByDate(calendar.time)
             adaptor.updateData(tasks)
         }
