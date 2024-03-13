@@ -14,6 +14,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "ToDo-App-C39-GSat"
+rootProject.name = "ToDo Application"
 include(":app")
  

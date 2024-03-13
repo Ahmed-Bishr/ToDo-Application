@@ -5,8 +5,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.todoapplication.databinding.ActivityListFragmentBinding
+import com.example.todoapplication.databinding.TaskItemBinding
 import java.util.Calendar
 
 class listFragment : Fragment() {
@@ -46,5 +48,10 @@ class listFragment : Fragment() {
                 .getTasksByDate(calendar.time)
             adaptor.updateData(tasks)
         }
+
     }
+
+
+
+
 }

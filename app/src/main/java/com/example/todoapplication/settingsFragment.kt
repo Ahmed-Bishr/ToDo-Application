@@ -80,8 +80,6 @@ class SettingsFragment : Fragment() {
     // Function to set the application language
     private fun setAppLanguage(languageCode: String, languageName: String) {
         AppCompatDelegate.setApplicationLocales(LocaleListCompat.create(Locale(languageCode)))
-        // set toast for the language selection
-        Toast.makeText(requireContext(), R.string.language_set, Toast.LENGTH_SHORT).show()
     }
 
     // Function to handle mode selection for English
